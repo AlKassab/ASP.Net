@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIrmc.cshtml";
+}
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 element-animate fadeInUp element-animated">
+                <div class="media d-block media-custom text-left">
+                    @model IEnumerable<Data.announcement>
+                   
+                    @foreach (var p in Model)
+    {
+
+                <div class="media-body">
+
+                    <span class="meta-post">@p.category.catname</span>
+                    <h3 class="mt-0 text-black"><a href="#" class="text-black"></a></h3>
+                    <p>@p.description</p>
+                    <p class="clearfix">
+                        <a href="#" class="float-left">Read more</a>
+                        <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span>@p.startDate</a>
+                        <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span>@p.endDate</a>
+                        <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span></a>
+                    </p>
+                    @Html.ActionLink("Edit", "Edit", new { id = @p.id_An })
+                </div>
+}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row element-animate fadeInUp element-animated">
+            <div class="col-md-5">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+

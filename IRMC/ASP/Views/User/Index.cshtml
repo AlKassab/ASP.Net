@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Data.user>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIrmc.cshtml";
+
+}
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.confirmPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.Result) {
+    <tr>
+        <td>
+         @item.role
+        </td>
+        <td>
+            @item.address
+        </td>
+        <td>
+            @item.confirmPassword
+        </td>
+        <td>
+            @item.country
+        </td>
+        <td>
+            @item.email
+        </td>
+        <td>
+           @item.firstName
+        </td>
+        <td>
+            @item.gender
+        </td>
+        <td>
+            @item.imagePath
+        </td>
+        <td>
+            @item.lastName
+        </td>
+        <td>
+            @item.password
+        </td>
+        <td>
+            @item.username
+        </td>
+        <td>
+            @item.phoneNumber
+        </td>
+        <td>
+            @item.state
+        </td>
+        <td>
+            @item.time
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

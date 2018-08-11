@@ -1,0 +1,6 @@
+C:\Users\bsinfo\Desktop\net\IRMC\Domain\bin\Debug\Domain.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Domain\bin\Debug\Domain.pdb
+C:\Users\bsinfo\Desktop\net\IRMC\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\Users\bsinfo\Desktop\net\IRMC\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\bsinfo\Desktop\net\IRMC\Domain\obj\Debug\Domain.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Domain\obj\Debug\Domain.pdb

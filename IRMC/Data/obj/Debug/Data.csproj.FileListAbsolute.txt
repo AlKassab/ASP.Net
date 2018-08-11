@@ -1,0 +1,17 @@
+C:\Users\bsinfo\Desktop\net\IRMC\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\Users\bsinfo\Desktop\net\IRMC\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\Data.dll.config
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\Data.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\Data.pdb
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\Domain.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\EntityFramework.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\MySql.Data.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\Domain.pdb
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\EntityFramework.xml
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\MySql.Data.xml
+C:\Users\bsinfo\Desktop\net\IRMC\Data\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\bsinfo\Desktop\net\IRMC\Data\obj\Debug\Data.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Data\obj\Debug\Data.pdb

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIrmc.cshtml";
+}
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center element-animate fadeInUp element-animated">
+            <div class="col-md-6">
+
+                <form action="#">
+                    <label for="search-doctor">Search Events</label>
+                    <div class="input-group input-group-lg">
+                        <input type="text" id="search-doctor" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">Go!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            @model IEnumerable<ASP.Models.EventViewModel>
+            @foreach (var p in Model)
+            {
+                <div class="col-md-3 element-animate">
+                    <div class="media d-block media-custom text-center">
+                        @{string path = "~/Content/imageJee/" + p.image;}
+                        <div style="width: 250px; height: 250px">
+                            <img src="@Url.Content(path)" alt="Image Placeholder" class="img-fluid">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="mt-0 text-black">@Html.DisplayFor(ModelItem => p.title) </h3>
+                            <div style="width: 150px; height: 150px"> <p>@Html.DisplayFor(ModelItem => p.description)</p></div>
+                            <p>
+                                Category: @Html.DisplayFor(ModelItem => p.cat)
+                            </p>
+                            <p>
+                                Capacity : @Html.DisplayFor(ModelItem => p.capacity)
+                            </p>
+                            <p> @Html.ActionLink("Learn More ", "Details", "Event", new { id = @Html.DisplayFor(ModelItem => p.id_Ev) }, null)</p>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+        </div>
+</section>
+

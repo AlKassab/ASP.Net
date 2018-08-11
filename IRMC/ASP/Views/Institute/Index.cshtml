@@ -1,0 +1,143 @@
+﻿
+
+@model IEnumerable<ASP.Models.InstituteViewModel>
+
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIrmc.cshtml";
+
+
+
+}
+
+
+
+
+
+
+
+
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="col-md-8 text-center mb-5">
+
+            <h2 class="text-uppercase heading border-bottom mb-4"> directory of institutes</h2>
+        </div>
+        <div class="row">
+
+
+            @foreach (var item in Model)
+            {
+
+                <div class="col-md-3 element-animate">
+                    <div class="media d-block media-custom text-center">
+                        @{string path = "~/Content/img/" + item.image;}
+                        <div style="width: 250px; height: 250px">
+                            <img src="@Url.Content(path)" alt="Image Placeholder" class="img-fluid">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="mt-0 text-black">@Html.DisplayFor(ModelItem => item.name) (@Html.DisplayFor(ModelItem => item.sigle))</h3>
+                            <div style="width: 150px; height: 150px"> <p>@Html.DisplayFor(ModelItem => item.description)</p></div>
+                            <p>
+                                type: @Html.DisplayFor(ModelItem => item.type)
+                            </p>
+                            <p>
+                                acess type : @Html.DisplayFor(ModelItem => item.type_acces)
+                            </p>
+
+                            <p> @Html.ActionLink("Learn More ", "Details", "Institute", new { id = @Html.DisplayFor(ModelItem => item.id_inst) }, null)</p>
+
+                            
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            }
+        </div>
+    </div>
+
+</section>
+
+<section class="section bg-light">
+    <div class="container">
+       
+        <div class="row">
+            <div id="dvMap" style="width: 1500px; height: 500px">
+
+            </div>
+            </div>
+        </div>
+   
+</section>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJof6u1M0N4nNtsW1EPPwjOzTYjh5glLc"></script>
+    <script type="text/javascript">
+
+
+        var markers = @Html.Raw(ViewBag.markers);
+    window.onload = function () {
+
+
+            var mapOptions = {
+                center: new google.maps.LatLng(32.7895, 11.2568),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var infoWindow = new google.maps.InfoWindow();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            for (i = 0; i < markers.length; i++) {
+                var data = markers[i]
+                var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: data.title
+                });
+                (function (marker, data) {
+                    google.maps.event.addListener(marker, "click", function (e) {
+                        infoWindow.setContent(data.description);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+            }
+
+            var myloc = new google.maps.Marker({
+                clickable: false,
+                icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                    new google.maps.Size(22, 22),
+                    new google.maps.Point(0, 18),
+                    new google.maps.Point(11, 11)),
+                shadow: null,
+                zIndex: 999,
+                map: map// your google.maps.Map object
+});
+
+            if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function (pos) {
+                var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+                myloc.setPosition(me);
+
+            })
+    }
+
+
+
+    </script>
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+C:\Users\bsinfo\Desktop\net\IRMC\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\Service.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\Service.pdb
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\Data.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\Domain.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\ServicePattern.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\EntityFramework.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\Data.pdb
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\Data.dll.config
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\Domain.pdb
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\ServicePattern.pdb
+C:\Users\bsinfo\Desktop\net\IRMC\Service\bin\Debug\EntityFramework.xml
+C:\Users\bsinfo\Desktop\net\IRMC\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+C:\Users\bsinfo\Desktop\net\IRMC\Service\obj\Debug\Service.dll
+C:\Users\bsinfo\Desktop\net\IRMC\Service\obj\Debug\Service.pdb

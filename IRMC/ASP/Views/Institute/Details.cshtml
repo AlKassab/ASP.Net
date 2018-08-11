@@ -1,0 +1,143 @@
+﻿@model IEnumerable<ASP.Models.InstituteViewModel>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutIrmc.cshtml";
+}
+<section class="section bg-light">
+    <div class="container">
+        <div class="col-md-8 text-center mb-5">
+
+            <h2 class="text-uppercase heading border-bottom mb-4"> Details  </h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+    {
+
+            
+
+        <section class="section custom-tabs">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 border-right element-animate">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span>01</span> Description</a>
+                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span>02</span> Geolocalisation</a>
+                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span>03</span> Patient Services</a>
+                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><span>04</span> Expert Doctors</a>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-7 element-animate">
+
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <span>  @{string path = "~/Content/img/" + item.image;}  <img src="@Url.Content(path)" alt="Image Placeholder" class="img-fluid"></span>
+                                <h2 class="text-primary">@Html.DisplayFor(ModelItem => item.name)</h2>
+                                <p class="lead">@Html.DisplayFor(ModelItem => item.description)</p>
+                                <p>Type           : @Html.DisplayFor(ModelItem => item.type) </p>
+                                <p>Type of acess  : @Html.DisplayFor(ModelItem => item.type_acces) </p>
+                                <p>web site   : @Html.DisplayFor(ModelItem => item.website) </p>
+                                <p>address   : @Html.DisplayFor(ModelItem => item.address)  @Html.DisplayFor(ModelItem => item.code_postale) </p>
+                                <p>mail   : @Html.DisplayFor(ModelItem => item.mail) </p>
+
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                <span class="icon ion-map"></span>
+                                <div id="dvMap" style="width: 800px; height: 500px">
+
+                                </div>
+                                
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <span class="icon flaticon-hospital-bed"></span>
+                                <h2 class="text-primary">Patient Services</h2>
+                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
+                                <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
+                                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                <span class="icon flaticon-doctor"></span>
+                                <h2 class="text-primary">Expert Doctors</h2>
+                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste dolores consequatur</p>
+                                <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea, tempore et quam natus quaerat doloremque.</p>
+                                <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        
+
+}
+        </div>
+    </div>
+</section>
+
+
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJof6u1M0N4nNtsW1EPPwjOzTYjh5glLc"></script>
+<script type="text/javascript">
+
+
+        var markers = @Html.Raw(ViewBag.markers);
+    window.onload = function () {
+
+
+            var mapOptions = {
+                center: new google.maps.LatLng(32.7895, 11.2568),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var infoWindow = new google.maps.InfoWindow();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            for (i = 0; i < markers.length; i++) {
+                var data = markers[i]
+                var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: data.title
+                });
+                (function (marker, data) {
+                    google.maps.event.addListener(marker, "click", function (e) {
+                        infoWindow.setContent(data.description);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+            }
+
+            var myloc = new google.maps.Marker({
+                clickable: false,
+                icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                    new google.maps.Size(22, 22),
+                    new google.maps.Point(0, 18),
+                    new google.maps.Point(11, 11)),
+                shadow: null,
+                zIndex: 999,
+                map: map// your google.maps.Map object
+});
+
+            if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function (pos) {
+                var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+                myloc.setPosition(me);
+
+            })
+    }
+
+
+
+</script>
+
